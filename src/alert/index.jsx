@@ -1,7 +1,8 @@
 import React from "react";
 
 import Icon from "./icon";
-import styles from "./styles";
+import "../trainsition-styles.css";
+import "./styles.css";
 
 const Alert = ({
 	type = "info",
@@ -9,17 +10,14 @@ const Alert = ({
 	headline,
 	onDismiss,
 	dismissTitle = "Dismiss",
-	sheet: { classes },
 	showIcon = true
 }) => {
 	const isDismissable = !!onDismiss;
-	const css = `${isDismissable ? classes.dismissable : ""} ${classes[
-		type
-	]} ${classes.alert}`;
+	const css = `${isDismissable ? "dismissable" : ""} alert-${type} alert`;
 	const dismiss = isDismissable ? (
 		<button
 			type="button"
-			className={classes.close}
+			className="close"
 			title={dismissTitle}
 			onClick={onDismiss}
 		>
@@ -33,14 +31,14 @@ const Alert = ({
 			<div className={css}>
 				{dismiss}
 
-				{showIcon ? <Icon className={classes.icon} type={type} /> : null}
-				<div className={classes.msgContainer}>
-					{headline ? <h4 className={classes.headline}>{headline}</h4> : null}
-					<div className={classes.body}>{children}</div>
+				{showIcon ? <Icon className="icon" type={type} /> : null}
+				<div className="msgContainer">
+					{headline ? <h4 className="headline">{headline}</h4> : null}
+					<div className="body">{children}</div>
 				</div>
 			</div>
 		</div>
 	);
 };
 
-export default styles(Alert);
+export default Alert;

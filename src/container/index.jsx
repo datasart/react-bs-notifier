@@ -2,18 +2,15 @@ import React, { Children, cloneElement } from "react";
 import { oneOf } from "prop-types";
 import { TransitionGroup } from "react-transition-group";
 import AlertTransition from "../alert-transition";
-import styles from "./styles";
+
+import "./styles.css";
 
 export const ENTER_TIMEOUT = 500;
 export const EXIT_TIMEOUT = 300;
 
-const AlertContainer = ({
-	position = "top-right",
-	children,
-	sheet: { classes }
-}) => {
+const AlertContainer = ({ position = "top-right", children }) => {
 	return (
-		<div className={`${classes.container} ${classes[position]}`}>
+		<div className={`alert-container ${position}`}>
 			<TransitionGroup>
 				{Children.map(
 					children,
@@ -35,4 +32,4 @@ export const PropTypes = {
 
 AlertContainer.propTypes = PropTypes;
 
-export default styles(AlertContainer);
+export default AlertContainer;

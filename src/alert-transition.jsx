@@ -1,14 +1,19 @@
 import React from "react";
-import transitionStyles from "./transition-styles";
 import { CSSTransition } from "react-transition-group";
 import { ENTER_TIMEOUT, EXIT_TIMEOUT } from "./container";
-import useSheet from "react-jss";
+import "./trainsition-styles.css";
 
 const timeout = { enter: ENTER_TIMEOUT, exit: EXIT_TIMEOUT };
 
-const AlertTransition = ({ sheet: { classes }, ...props }) => {
-	delete props.classes; // if it is there (it may not be depending on which version of JSS is used)
+const AlertTransition = ({ ...props }) => {
+	delete props.classes;
+	const classes = {
+		enterActive: "enterActive",
+		enter: "enter",
+		exit: "exit",
+		exitActive: "exitActive"
+	};
 	return <CSSTransition timeout={timeout} classNames={classes} {...props} />;
 };
 
-export default useSheet(transitionStyles)(AlertTransition);
+export default AlertTransition;

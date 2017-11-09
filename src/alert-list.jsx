@@ -13,16 +13,11 @@ import {
 import Container, { PropTypes as ContainerPropTypes } from "./container";
 import Alert, { PropTypes as AlertPropTypes } from "./alert-timer";
 import AlertTransition from "./alert-transition";
-import styles from "./container/styles";
 
-const AlertList = ({
-	position,
-	alerts,
-	onDismiss,
-	sheet: { classes },
-	...props
-}) => (
-	<Container position={position} className={classes.container}>
+import "./container/styles.css";
+
+const AlertList = ({ position, alerts, onDismiss, ...props }) => (
+	<Container position={position} className="container">
 		<TransitionGroup>
 			{alerts.map(item => {
 				const dismiss = onDismiss ? () => onDismiss(item) : null;
@@ -57,4 +52,4 @@ AlertList.propTypes = {
 	timeout
 };
 
-export default styles(AlertList);
+export default AlertList;

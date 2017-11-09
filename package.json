@@ -33,7 +33,6 @@
   },
   "dependencies": {
     "prop-types": "15.x",
-    "react-jss": ">= 5.2 <8",
     "react-transition-group": "2.x",
     "toetag": "3.x"
   },

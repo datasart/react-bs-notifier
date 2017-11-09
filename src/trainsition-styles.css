@@ -1,0 +1,25 @@
+
+.enter {
+    opacity: 0.01;
+    transform: translateX(-25%);
+    max-height: 0;
+    overflow: hidden;
+    transition: .25s ease-in
+}
+.enterActive {
+    opacity: 1;
+    transform: translateX(0);
+    max-height: 20em
+}
+.exit {
+    opacity: 1;
+    transform: translateX(0);
+    max-height: 20em;
+    overflow: hidden;
+    transition: .25s ease-out
+}
+.exitActive {
+    opacity: 0.01;
+    transform: translateX(25%);
+    max-height: 0
+}
