@@ -34,7 +34,7 @@ const Alert = ({
 				{showIcon ? <Icon className="icon" type={type} /> : null}
 				<div className="msgContainer">
 					{headline ? <h4 className="headline">{headline}</h4> : null}
-					<div className="body">{children}</div>
+					<div className="alert-body">{children}</div>
 				</div>
 			</div>
 		</div>
